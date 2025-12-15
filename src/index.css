@@ -1,0 +1,199 @@
+/* Font imports must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Lavender & Royal Blue Theme - Mystical Kumaon Aesthetics */
+    --background: 250 30% 97%;
+    --foreground: 240 35% 20%;
+
+    --card: 250 40% 98%;
+    --card-foreground: 240 35% 20%;
+
+    --popover: 250 40% 98%;
+    --popover-foreground: 240 35% 20%;
+
+    /* Royal Blue - Primary brand color */
+    --primary: 230 65% 35%;
+    --primary-foreground: 250 30% 98%;
+
+    /* Lavender - Secondary accent */
+    --secondary: 270 45% 75%;
+    --secondary-foreground: 240 35% 20%;
+
+    --muted: 250 30% 92%;
+    --muted-foreground: 240 20% 50%;
+
+    /* Soft Lavender accent */
+    --accent: 270 50% 85%;
+    --accent-foreground: 240 35% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 250 30% 98%;
+
+    --border: 250 25% 88%;
+    --input: 250 25% 88%;
+    --ring: 270 45% 70%;
+
+    --radius: 0.75rem;
+
+    /* Custom Moonbeam colors */
+    --lavender: 270 45% 75%;
+    --lavender-light: 270 50% 85%;
+    --lavender-dark: 270 40% 65%;
+    --royal-blue: 230 65% 35%;
+    --royal-blue-dark: 230 70% 25%;
+    --indigo: 240 50% 45%;
+    --indigo-dark: 240 60% 30%;
+    --muted-gold: 45 40% 70%;
+
+    /* Gradients */
+    --gradient-lavender: linear-gradient(135deg, hsl(270 50% 85%), hsl(270 45% 75%));
+    --gradient-royal: linear-gradient(135deg, hsl(230 65% 35%), hsl(240 60% 30%));
+    --gradient-mystical: linear-gradient(135deg, hsl(270 45% 75%), hsl(230 65% 35%));
+    --gradient-subtle: linear-gradient(180deg, hsl(250 30% 97%), hsl(250 35% 93%));
+
+    /* Shadows with lavender glow */
+    --shadow-lavender: 0 4px 20px -4px hsl(270 45% 75% / 0.4);
+    --shadow-royal: 0 8px 30px -8px hsl(230 65% 35% / 0.3);
+    --shadow-mystical: 0 0 40px hsl(270 50% 85% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.3s ease-in-out;
+
+    --sidebar-background: 250 30% 97%;
+    --sidebar-foreground: 240 35% 20%;
+    --sidebar-primary: 230 65% 35%;
+    --sidebar-primary-foreground: 250 30% 98%;
+    --sidebar-accent: 270 50% 85%;
+    --sidebar-accent-foreground: 240 35% 20%;
+    --sidebar-border: 250 25% 88%;
+    --sidebar-ring: 270 45% 70%;
+  }
+
+  .dark {
+    --background: 240 40% 8%;
+    --foreground: 250 30% 95%;
+
+    --card: 240 35% 12%;
+    --card-foreground: 250 30% 95%;
+
+    --popover: 240 35% 12%;
+    --popover-foreground: 250 30% 95%;
+
+    --primary: 270 45% 75%;
+    --primary-foreground: 240 35% 15%;
+
+    --secondary: 230 60% 40%;
+    --secondary-foreground: 250 30% 95%;
+
+    --muted: 240 30% 18%;
+    --muted-foreground: 250 20% 60%;
+
+    --accent: 270 40% 65%;
+    --accent-foreground: 250 30% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 250 30% 95%;
+
+    --border: 240 30% 20%;
+    --input: 240 30% 20%;
+    --ring: 270 45% 70%;
+
+    --lavender: 270 45% 75%;
+    --lavender-light: 270 50% 85%;
+    --lavender-dark: 270 40% 65%;
+    --royal-blue: 230 65% 45%;
+    --royal-blue-dark: 230 70% 35%;
+    --indigo: 240 50% 55%;
+    --indigo-dark: 240 60% 40%;
+    --muted-gold: 45 45% 75%;
+
+    --sidebar-background: 240 35% 10%;
+    --sidebar-foreground: 250 30% 95%;
+    --sidebar-primary: 270 45% 75%;
+    --sidebar-primary-foreground: 240 35% 15%;
+    --sidebar-accent: 240 30% 18%;
+    --sidebar-accent-foreground: 250 30% 95%;
+    --sidebar-border: 240 30% 20%;
+    --sidebar-ring: 270 45% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-lavender {
+    color: hsl(var(--lavender));
+  }
+  
+  .text-royal-blue {
+    color: hsl(var(--royal-blue));
+  }
+  
+  .bg-lavender {
+    background-color: hsl(var(--lavender));
+  }
+  
+  .bg-royal-blue {
+    background-color: hsl(var(--royal-blue));
+  }
+  
+  .gradient-lavender {
+    background: var(--gradient-lavender);
+  }
+  
+  .gradient-royal {
+    background: var(--gradient-royal);
+  }
+  
+  .gradient-mystical {
+    background: var(--gradient-mystical);
+  }
+  
+  .shadow-lavender {
+    box-shadow: var(--shadow-lavender);
+  }
+  
+  .shadow-royal {
+    box-shadow: var(--shadow-royal);
+  }
+  
+  .shadow-mystical {
+    box-shadow: var(--shadow-mystical);
+  }
+  
+  .glow-lavender {
+    text-shadow: 0 0 20px hsl(270 45% 75% / 0.6);
+  }
+  
+  .border-lavender {
+    border-color: hsl(var(--lavender));
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
