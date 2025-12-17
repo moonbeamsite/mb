@@ -299,12 +299,12 @@ export const MenuFlipbook = ({ pages }: MenuFlipbookProps) => {
             onTouchEnd={handleTouchEnd}
           >
             {/* Desktop Layout - Two Pages Side by Side */}
-            <div className="hidden md:block">
+            <div className="hidden md:block absolute inset-0">
               {/* Left Page (Previous) */}
               <div className="absolute left-0 w-1/2 h-full flex items-center justify-center">
-                <div className="relative w-full h-full max-w-md max-h-full">
-                  <div className="absolute inset-4 bg-white rounded-l-lg page-shadow-left overflow-hidden border-r-2 border-lavender/40 page-texture">
-                    {currentPage > 0 && (
+                <div className="relative w-full h-full max-w-lg max-h-full">
+                  <div className="absolute inset-6 bg-white rounded-l-lg page-shadow-left overflow-hidden border-r-2 border-lavender/40 page-texture">
+                    {currentPage > 0 ? (
                       <>
                         <img
                           src={pages[currentPage - 1]}
@@ -315,6 +315,10 @@ export const MenuFlipbook = ({ pages }: MenuFlipbookProps) => {
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-royal/5 pointer-events-none"></div>
                         <div className="absolute right-0 top-0 bottom-0 w-1 book-gutter"></div>
                       </>
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-lavender/5 to-royal/5 flex items-center justify-center">
+                        <div className="text-royal/30 text-lg font-serif">Cover</div>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -322,8 +326,8 @@ export const MenuFlipbook = ({ pages }: MenuFlipbookProps) => {
 
               {/* Right Page (Current) */}
               <div className="absolute right-0 w-1/2 h-full flex items-center justify-center">
-                <div className="relative w-full h-full max-w-md max-h-full">
-                  <div className="absolute inset-4 bg-white rounded-r-lg page-shadow-right overflow-hidden border-l-2 border-lavender/40 page-texture page-hover-effect">
+                <div className="relative w-full h-full max-w-lg max-h-full">
+                  <div className="absolute inset-6 bg-white rounded-r-lg page-shadow-right overflow-hidden border-l-2 border-lavender/40 page-texture page-hover-effect">
                     <img
                       src={pages[currentPage]}
                       alt={`Menu page ${currentPage + 1}`}
