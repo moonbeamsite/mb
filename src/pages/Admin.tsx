@@ -9,7 +9,8 @@ import { AdminDishes } from "@/components/admin/AdminDishes";
 import { AdminProducts } from "@/components/admin/AdminProducts";
 import { AdminBlogs } from "@/components/admin/AdminBlogs";
 import { AdminJournal } from "@/components/admin/AdminJournal";
-import { ChefHat, ShoppingBag, FileText, BookOpen, Settings, Loader2 } from "lucide-react";
+import { AdminMenu } from "@/components/admin/AdminMenu";
+import { ChefHat, ShoppingBag, FileText, BookOpen, Settings, Loader2, Menu } from "lucide-react";
 
 const Admin = () => {
   const { user, loading: authLoading } = useAuth();
@@ -61,8 +62,12 @@ const Admin = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="dishes" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-grid bg-lavender/10 border border-lavender/30">
+        <Tabs defaultValue="menu" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:inline-grid bg-lavender/10 border border-lavender/30">
+            <TabsTrigger value="menu" className="flex items-center gap-2 data-[state=active]:bg-lavender data-[state=active]:text-primary-foreground">
+              <Menu className="w-4 h-4" />
+              <span className="hidden sm:inline">Menu</span>
+            </TabsTrigger>
             <TabsTrigger value="dishes" className="flex items-center gap-2 data-[state=active]:bg-lavender data-[state=active]:text-primary-foreground">
               <ChefHat className="w-4 h-4" />
               <span className="hidden sm:inline">Dishes</span>
@@ -80,6 +85,10 @@ const Admin = () => {
               <span className="hidden sm:inline">Journal</span>
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="menu">
+            <AdminMenu />
+          </TabsContent>
 
           <TabsContent value="dishes">
             <AdminDishes />

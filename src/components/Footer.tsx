@@ -54,7 +54,8 @@ export const Footer = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        {/* Desktop Layout */}
+        <div className="hidden md:grid grid-cols-3 gap-12 mb-12">
           {/* Logo Section */}
           <div className="space-y-4">
             <img 
@@ -123,6 +124,83 @@ export const Footer = () => {
                   <social.icon className="w-5 h-5 text-lavender group-hover:text-royal-dark" />
                 </a>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden space-y-8 mb-12">
+          {/* Logo Section - Mobile */}
+          <div className="space-y-4">
+            <img 
+              src={logoImage} 
+              alt="Moonbeam Logo" 
+              className="h-14 w-auto"
+            />
+            <p className="text-lavender-light text-lg font-serif">
+              The Kumaon Aesthetics
+            </p>
+            <p className="text-primary-foreground/70 leading-relaxed text-sm">
+              Experience the mystical flavors and organic treasures of the Himalayan hills, 
+              crafted with love and tradition.
+            </p>
+          </div>
+
+          {/* Quick Links and Connect With Us - Side by Side on Mobile */}
+          <div className="grid grid-cols-2 gap-6">
+            {/* Quick Links - Mobile */}
+            <div>
+              <h3 className="text-lg font-serif font-bold mb-4 text-lavender-light">
+                Quick Links
+              </h3>
+              <nav className="space-y-2">
+                {quickLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="block text-primary-foreground/80 hover:text-lavender transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Connect With Us - Mobile */}
+            <div>
+              <h3 className="text-lg font-serif font-bold mb-4 text-lavender-light">
+                Connect With Us
+              </h3>
+              <div className="space-y-3 mb-4">
+                <a 
+                  href="mailto:hello@moonbeam.com"
+                  className="flex items-center gap-2 text-primary-foreground/80 hover:text-lavender transition-colors duration-300 group text-sm"
+                >
+                  <Mail className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="break-all">hello@moonbeam.com</span>
+                </a>
+                <a 
+                  href="tel:+919876543210"
+                  className="flex items-center gap-2 text-primary-foreground/80 hover:text-lavender transition-colors duration-300 group text-sm"
+                >
+                  <Phone className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span>+91 98765 43210</span>
+                </a>
+              </div>
+
+              {/* Social Icons - Mobile */}
+              <div className="flex gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="w-8 h-8 rounded-full border-2 border-lavender/50 flex items-center justify-center hover:bg-lavender hover:border-lavender transition-all duration-300 hover:scale-110 group"
+                  >
+                    <social.icon className="w-4 h-4 text-lavender group-hover:text-royal-dark" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -42,9 +42,17 @@ export const Navigation = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-royal/70 via-royal/15 to-transparent backdrop-filter backdrop-blur-sm transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 navbar-fade"
     >
-      <div className="container mx-auto px-4">
+      {/* Gradient Background - Completely Invisible at Bottom */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to bottom, hsl(var(--royal-blue) / 0.85) 0%, hsl(var(--royal-blue) / 0.6) 30%, hsl(var(--royal-blue) / 0.2) 60%, hsl(var(--royal-blue) / 0.05) 80%, transparent 100%)',
+          backdropFilter: 'blur(12px) saturate(180%)'
+        }}
+      ></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">

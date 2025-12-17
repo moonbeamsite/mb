@@ -36,7 +36,7 @@ const Index = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 10000); // Slowed down from 6 seconds to 10 seconds
+    }, 12000); // Slowed down to 12 seconds for more viewing time
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -119,13 +119,13 @@ const Index = () => {
                     <div className="h-1/2 relative bg-gradient-to-br from-royal/90 via-royal-dark/85 to-royal/90 flex items-center">
                       {/* Smooth transition gradient at top - Mobile only */}
                       <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-royal/90 via-royal/70 to-transparent" />
-                      <div className="container mx-auto px-4 py-6 relative z-10">
+                      <div className="container mx-auto px-4 py-4 relative z-10">
                         <div className="text-center">
-                          <h2 className="text-2xl font-bold mb-4 text-primary-foreground glow-lavender font-serif leading-tight">
+                          <h2 className="text-lg font-bold mb-3 text-primary-foreground glow-lavender font-serif leading-tight">
                             {slide.title}
                           </h2>
-                          <div className="bg-background/20 backdrop-blur-sm rounded-xl p-4 border border-lavender/40 shadow-lg">
-                            <p className="text-sm leading-relaxed text-primary-foreground/95 font-light">
+                          <div className="bg-background/20 backdrop-blur-sm rounded-lg p-3 border border-lavender/40 shadow-lg">
+                            <p className="text-xs leading-relaxed text-primary-foreground/95 font-light">
                               {slide.story}
                             </p>
                           </div>
@@ -144,12 +144,12 @@ const Index = () => {
                     </div>
                     <div className="relative z-10 h-full flex items-center">
                       <div className="container mx-auto px-6 md:px-12">
-                        <div className="max-w-2xl">
-                          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-primary-foreground glow-lavender font-serif leading-tight">
+                        <div className="max-w-xl">
+                          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-primary-foreground glow-lavender font-serif leading-tight">
                             {slide.title}
                           </h2>
-                          <div className="bg-background/15 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-lavender/30 shadow-lg">
-                            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-primary-foreground/95 font-light">
+                          <div className="bg-background/15 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-lavender/30 shadow-lg">
+                            <p className="text-sm md:text-base lg:text-lg leading-relaxed text-primary-foreground/95 font-light">
                               {slide.story}
                             </p>
                           </div>
